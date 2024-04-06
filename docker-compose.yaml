@@ -1,0 +1,17 @@
+version: '3'
+services: 
+  joomla:
+    depends_on:
+      - mysql
+    image: joomla
+    ports:
+     - "8080:80"
+    environment:
+      JOOMLA_DB_HOST: mysql:3306
+      JOOMLA_DB_PASSWORD: password
+  
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: joomla
